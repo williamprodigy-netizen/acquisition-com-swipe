@@ -1,0 +1,164 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The VSL &middot; Acquisition.com — Scaling Workshop swipe</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#fff;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8;--good:#34d399;--warn:#fb923c;--bad:#fb7185}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 22px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:840px}
+.hero p+p{margin-top:12px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:8px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h2.sec+p.lede{font-size:15px;color:var(--muted);margin-bottom:16px;max-width:840px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.card p+p{margin-top:9px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:25px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+.tag.a{color:var(--accent);border-color:var(--accent)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure .shot{max-height:420px;overflow:hidden;display:block}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:9px 11px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600;display:block;margin-bottom:2px;font-size:13.5px}
+figcaption a{color:var(--accent);text-decoration:none;word-break:break-all}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.75}
+details .body p{margin-bottom:11px;white-space:pre-wrap}
+details .note{padding:0 15px 12px;font-size:13px;color:var(--warn);font-style:italic}
+.q{background:var(--panel);border-left:3px solid var(--accent);padding:14px 17px;border-radius:0 8px 8px 0;
+ font-size:15.5px;line-height:1.65;margin-bottom:12px}
+.q .src{display:block;margin-top:8px;font-size:12px;color:var(--muted);font-style:normal}
+.ev{font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+.ev.v{color:var(--good)}.ev.p{color:var(--warn)}.ev.u{color:var(--muted)}.ev.r{color:var(--accent)}
+.big{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+ border-radius:0 10px 10px 0;padding:20px 24px;margin-bottom:16px}
+.big h3{font-size:18px;margin-bottom:10px}
+.big p{font-size:15px;color:var(--muted);line-height:1.65}
+.big p+p{margin-top:10px}
+.big b{color:var(--ink)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px;font-size:13px;color:var(--muted)}
+#lb{position:fixed;inset:0;background:rgba(8,11,17,.94);display:none;z-index:200;overflow:auto;padding:40px 20px}
+#lb.on{display:block}
+#lb img{max-width:1100px;width:100%;margin:0 auto;display:block;border-radius:8px}
+#lbx{position:fixed;top:14px;right:20px;color:#94a3b8;font-size:13px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Acquisition.com <span>&middot; F133</span></div>
+<nav class="main"><a href="index.html" class="">Overview</a><a href="funnel.html" class="">The pages</a><a href="vsl.html" class="on">The VSL</a><a href="emails.html" class="">The emails</a><a href="application.html" class="">The application</a><a href="steal.html" class="">What to steal</a><a href="board.html" class="">Wired board</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">The VSL</div>
+<h1>7 minutes 21 seconds, and no offer until 4:00</h1>
+<p>Vidalytics player on /workshop and /o-vegas, id <code>dIKsAOKOfqVMrD08</code>, media
+<code>DwsFbQ3odQ1m08bG</code>. The manifest is JS-negotiated and every direct guess returns 403 &mdash;
+it was pulled by sniffing <code>stream.m3u8</code> out of the browser network log at 1080p.</p>
+<p>The whole video is one idea: <b>key man risk</b>. You do not own a business, you own a very
+expensive high-paying job, and you are the bridge everyone is standing on.</p></div>
+
+<section><div class="grid g3">
+<div class="stat"><div class="n">7:21</div><div class="l">runtime</div></div>
+<div class="stat"><div class="n">2,087</div><div class="l">words</div></div>
+<div class="stat"><div class="n">$46.2M</div><div class="l">Gym Launch exit, stated</div></div>
+<div class="stat"><div class="n">1,000+</div><div class="l">businesses hosted, 2 yrs</div></div>
+<div class="stat"><div class="n">~80</div><div class="l">average room size</div></div>
+<div class="stat"><div class="n">0</div><div class="l">price mentions</div></div>
+</div></section>
+
+<section><h2 class="sec">The structure, beat by beat</h2>
+<p class="lede">Note where the offer arrives: four minutes into a seven-minute video, and the price
+is never said out loud &mdash; it is on the page instead.</p>
+<div class="tablewrap"><table>
+<tr><th>At</th><th>Beat</th><th>What it is doing</th></tr>
+<tr><td class="num">00:00:00</td><td><b>Symptom stack, no claim</b></td><td>Six &ldquo;have you ever&rdquo; symptoms before he says a single thing about himself. Vacation on the laptop, delegating feels risky, the knowledge is in your head, the team asks you everything, revenue dies if you get sick, guilty at work and guilty at home.</td></tr><tr><td class="num">00:00:30</td><td><b>Name the enemy</b></td><td>&ldquo;key man risk&rdquo;. He gives the feeling a technical-sounding name, which makes it a solvable engineering problem rather than a personal failing.</td></tr><tr><td class="num">00:00:46</td><td><b>The reframe that does the work</b></td><td>&ldquo;Most of the owners think that they own a business when in reality, they own a very expensive, high paying job.&rdquo;</td></tr><tr><td class="num">00:01:15</td><td><b>One picture</b></td><td>The bridge. A thousand people either side, and if you ARE the bridge, the second you leave everyone falls in and dies. He reuses &ldquo;the bridge&rdquo; as shorthand for the rest of the video.</td></tr><tr><td class="num">00:01:32</td><td><b>Proof, as autobiography</b></td><td>He was the key man trying to sell Gym Launch. Fixed it over two years. Sold for <b>$46.2 million</b>. Portfolio now does $250M/yr. The proof arrives as the story of his own failure, not as a flex.</td></tr><tr><td class="num">00:02:23</td><td><b>Pre-empt &ldquo;my business is different&rdquo;</b></td><td>&ldquo;there&rsquo;s the only four ways you can sell stuff&hellip; If you sell in any of those four ways, we have worked with a business like yours many, many, many times.&rdquo; Collapses every industry objection into one line.</td></tr><tr><td class="num">00:02:30</td><td><b>The four-part diagnostic</b></td><td>Key man risk shows up in marketing, sales, product/delivery, or operations. The viewer self-diagnoses into a bucket &mdash; which is the same question Ronney asks by email.</td></tr><tr><td class="num">00:03:09</td><td><b>The twist</b></td><td>&ldquo;the more valuable you become, the more of a key man you become&hellip; the better you get, the worse it is for the business.&rdquo; Punishes the exact behaviour his best prospects are proudest of.</td></tr><tr><td class="num">00:04:43</td><td><b>Anti-hype positioning</b></td><td>&ldquo;this is not a room&hellip; a big rah rah&hellip; zero motivational talks. You like read all the reviews we have online. They&rsquo;re like zero hype, no BS. If anything, people were like, this is a lot.&rdquo; A negative review used as the proof.</td></tr><tr><td class="num">00:05:31</td><td><b>Anti-promise</b></td><td>&ldquo;I can&rsquo;t promise that the rainbows are going to come in and unicorns are going to carry off in the distance.&rdquo; He kills the hype expectation himself, which is cheaper than a guarantee and does the same job.</td></tr><tr><td class="num">00:06:17</td><td><b>The real booking objection, named</b></td><td>&ldquo;when you book a call, you can reserve a priority ticket, even if you need a little time to pick the exact date. It&rsquo;s one of the number one reasons people are like, I&rsquo;m not sure if I should book a call.&rdquo; He states the objection out loud and removes the date commitment from the booking decision.</td></tr><tr><td class="num">00:06:40</td><td><b>Urgency without a timer</b></td><td>The doctor and the sore foot: waiting until it hurts less means it will be harder to walk. Then the busy-season handle &mdash; &ldquo;if you can learn how to fix the business in a busy season, then it&rsquo;ll be a breeze during an easy season&hellip; I&rsquo;ve yet to meet a business owner who says it&rsquo;s an easy season.&rdquo;</td></tr></table></div></section>
+
+<section><h2 class="sec">The lines worth keeping</h2>
+<div class="q">Most of the owners think that they own a business when in reality, they own a very
+expensive, high paying job.<span class="src">00:00:46 &middot; <span class="ev v">VERIFIED</span></span></div>
+<div class="q">Your business is like a bridge. You have a thousand people on one side and a thousand
+people on the other side of the bridge. But if you are the bridge, the second you leave, everyone
+falls in the water and dies.<span class="src">00:01:15</span></div>
+<div class="q">The more valuable you become, the more of a key man you become to your business. So
+it&rsquo;s this double edged sword &mdash; the better you get, the worse it is for the
+business.<span class="src">00:03:09</span></div>
+<div class="q">Every day that you remain the key man, you are not building the business. You&rsquo;re
+building a very comfortable prison.<span class="src">00:05:31</span></div>
+<div class="q">I&rsquo;ve yet to meet a business owner who says it&rsquo;s an easy
+season.<span class="src">00:07:03</span></div>
+<div class="q">If there was one magic bullet that would actually solve a business, everyone would do
+it, and it would only be magic bullets.<span class="src">00:04:43</span></div></section>
+
+<section><h2 class="sec">What is NOT in it</h2>
+<div class="grid g2">
+<div class="card"><h3>No price</h3><p>Never spoken. The $5,000 sits in the FAQ underneath instead, so
+the video never has to defend it.</p></div>
+<div class="card"><h3>No bonus stack, no anchor</h3><p>No &ldquo;normally $X&rdquo;, no value build,
+no countdown. The scarcity is physical &mdash; the room only holds so many.</p></div>
+<div class="card"><h3>No testimonials in the video</h3><p>Social proof is a separate strip on the page.
+The video is one man, one idea, one story.</p></div>
+<div class="card"><h3>No guarantee</h3><p>Replaced by the anti-promise at 05:31. He tells you what he
+will NOT claim, which buys more trust than a refund policy would.</p></div>
+</div></section>
+
+<section><h2 class="sec">Full transcript</h2>
+<p class="lede">whisper.cpp <code>ggml-small.en</code>. Timestamps refer to the source recording in
+<code>~/Downloads/ACQUISITION_COM_Swipe/Recording/</code>.</p>
+<div class="card"><p><span class="ts">00:00:00</span> Let me ask you a question, have you ever felt like you can&#x27;t take a vacation without spending half your time on your laptop or delegating feels super risky because no one else kind of knows it like you do and most of the company&#x27;s knowledge, you know, exists inside of your head or maybe your team looks to you for every single answer, even the tiny ones and you secretly resend them for it or you worry of what would happen to revenue if you got sick or disappeared for a month because all the sales and fulfillment rely on you. Maybe you just feel guilty when you&#x27;re with your family because you&#x27;re not working and you feel guilty when you&#x27;re working because you&#x27;re with your family and if that sounds at least familiar, give something that we call key man risk, which means that you&#x27;re constantly working in the business and not on the business. It&#x27;s the number one reason why entrepreneurs can&#x27;t scale and it&#x27;s also why they can&#x27;t sell their companies and it&#x27;s also why they feel trapped. It&#x27;s after hosting over a thousand businesses here at a headquarters in Vegas for the last two years, I&#x27;ve noticed one very common theme that separates entrepreneurs who scale fast from those who stays trapped for a long time.</p><p><span class="ts">00:00:46</span> Most of the owners think that they own a business when in reality, they own a very expensive, high paying job. And so key man risk is when a single person is vital to the business operating. All right. So if they&#x27;re gone, your business stops working. And for some, this risk shows up when growth explodes and, you know, it feels like the wheels are falling off the bus. For others, it&#x27;s, you know, they&#x27;re launching a new line and realizing that they don&#x27;t have the systems in order to support it. Or they&#x27;re just starting to, you know, to try and consider an exit only to find out that the business is actually unsellable is something that I went through. And so key man risk is always painful. But when you&#x27;re doubling revenue or a new product line or preparing for a sale, it can destroy everything that you&#x27;ve built. And that&#x27;s when founders realized they can&#x27;t keep being the bottleneck. And so just look at it like this. Your business is like a bridge, right? You have a thousand people on one side and a thousand people on the other side of the bridge. But if you are the bridge, the second you leave, everyone falls in the water and dies. Right.</p><p><span class="ts">00:01:32</span> Not great. And so how do you know if you actually have key man risk? So I know this because when I&#x27;m trying to sell my company Jim Launch, I was the key man. And so for any potential acquirer, like a private equity firm or institutional buyer, having one person, especially the owner who&#x27;s going to leave is a massive red flag. And so they&#x27;re thinking like, we&#x27;re buying this business, but removing the one person that makes this thing work. No way. Right. And even if it weren&#x27;t a massive red flag, it&#x27;ll just dramatically reduce the valuation of the business. And so once I fixed this, I was able to run my company off of one meeting a week. Now, to be clear, that didn&#x27;t happen overnight. It took two years to get from me being involved in marketing, sales, ops, recruiting all of it to me being able to have an executive team that could take the company continue to grow, continue to be profitable with just one hour. Getting to that point resulted in me selling the company for forty six point two million dollars. And so today I&#x27;m a portfolio of companies that last year did over 250 million dollars in aggregate revenue. And we implement these same systems across software, local businesses, e-commerce, consumer services, professional services, home services, medical services, probably a business like yours.</p><p><span class="ts">00:02:23</span> And so fundamentally, if you sell online via checkout, online over the phone, in person with a salesperson self checkout, there&#x27;s the only four ways you can sell stuff. If you sell in any of those four ways, we have worked with a business like yours many, many, many times. And so key man risk presents itself in four main areas. So number one, marketing. So you&#x27;re the only one who knows how to get leads or there&#x27;s one person in the business who only knows how to get leads. And if that person left, the business is screwed. The second is sales, which is that you&#x27;re the only person who can close leads. And you may be this person that only you trust with customers or that customers only trust you. It doesn&#x27;t really matter. At the end of the day, there&#x27;s only one person who can close. The third is product or delivery. You might be the one person who can figure out these complex things. You&#x27;re some super genius or whatever thing that you sell is. But that still makes you the bottleneck to everything the business delivers. And then finally is fourth, which is the operations, right? You&#x27;re the only person who can hold everything together.</p><p><span class="ts">00:03:09</span> You&#x27;re the glue. You&#x27;re the one that everyone respects. And then if you were gone, no one would kind of keep the trains running on time and leave a huge vacuum. So here&#x27;s the wild part. The more valuable come. And this is something that was like super painful for me because I&#x27;m such a big like investor in self education. But the more valuable you become, the more of a key man you become to your business. So it&#x27;s this double edged storage of the better you get, the worse it is for the business in a way. Right. And so the more places one person, specifically maybe you, the key man exists, the riskier the business becomes overall and the less likely an acquirers to buy it. So here&#x27;s what I&#x27;ve learned. So as soon as you learn the system to rapidly removing key man risk, which you can do in a repeatable way, you could unlock the ability to scale and fast. And so I think about it like this assembling companies and assembling people and then transferring skills around whatever area has a bottleneck where too few people know how to do the thing.</p><p><span class="ts">00:03:56</span> And so whether you want to sell your business or not, making a business that sell a bull makes it better for everyone. So business owners that want to scale and potentially have the option for an exit all have one thing in common. They are the bridge. And then they ask a similarly worded question. How do I stop being the bridge or how do I stop being the bottleneck or how do I stop being the constraint? And so the answer is, well, it depends on where you experience key man risk. And the good news is, though, it doesn&#x27;t matter which of the four that I mentioned it is, there is a system to solve it. And I know it because I&#x27;ve lived it. And so that&#x27;s why we ended up creating the scaling workshop. It&#x27;s a way for us to meet companies, help them get through these exact problems where they&#x27;re currently at in their industry and their size. Business owners fly to our headquarters in Vegas to work with our team hands on over a two day sprint up to implement the system. But here&#x27;s the thing. This is not a room, you know, like a big conference, a big rah rah that we sit in the back and you take a bunch of notes, you know, or something like that.</p><p><span class="ts">00:04:43</span> We work with a maximum of 100 businesses at a time. I think the average is around 80 ish. And there&#x27;s zero motivational talks. You like read all the reviews we have online. They&#x27;re like zero hype, no BS. If anything, people were like, this is a lot. But that&#x27;s the reality. Like if there was one magic bullet that would actually get you to solve a business, everyone would do it and it would only be magic bullets, just what everyone would do. And so there&#x27;s a process, a sequence of steps that you can follow with some people call a system to getting from point A to point B. And so we work directly on your business with your specific challenges and so that you can leave with your complete three to five step execution plan with owners, timelines and everything built specifically to your business. It&#x27;s extremely tactical. So imagine this. Instead of being the bridge that everything depends on, your business runs on systems, right? And you can step away for a week or a month and the revenue continues to flow. And you have a team that makes decisions with value, content gets served the same quality and growth is predictable.</p><p><span class="ts">00:05:31</span> This is the end goal here. You&#x27;re no longer trapped in a high paying job. You actually own a true business that works for you, not because of you. Now, I can&#x27;t promise that the rainbows are going to come in and unicorns are going to carry off in the distance because it works on you, right? But we can&#x27;t show you how we do it and how we&#x27;ve done it with our portfolio companies across all these different industries, across all these different sizes. And so every day that you remain the key man, you are not building the business. You&#x27;re building a very comfortable prison, which sucks, right? I get it because I&#x27;ve done it for a very long time. And hey, to be clear, if you want to just continue to work that way, it&#x27;s totally cool. Like I&#x27;m king of like do whatever you want, right? But as long as you understand, that&#x27;s what you&#x27;re getting into. The thing is, the people who come out to Vegas to one of our workshops tend to be the ones who want to turn those kind of like high paying jobs into assets. They want to create something. They want to build something that&#x27;s separate from themselves, something that is sellable if they so chose to. The reality of this is that there&#x27;s never going to be a perfect time.</p><p><span class="ts">00:06:17</span> In fact, these problems typically compound, they get worse. That&#x27;s usually when they&#x27;re not addressed quickly. And you might be feeling that right now. And so when you book a call, you can reserve a priority ticket, even if you need a little time to pick the exact date. It&#x27;s one of the number one reasons people are like, I&#x27;m not sure if I should be called out. Book call now. Let&#x27;s get a fit. We&#x27;ll see. Make sure that it works both ways. And then we&#x27;ll just make sure that there&#x27;s a time that fits within your calendar. All right. And that way you don&#x27;t get stuck waiting another six or 12 months while these problems continue to get worse. Done the right way. The crazy thing is like, hey, you know, my foot hurts. Once I go to see the doctor, it&#x27;s like, well, when my foot hurts even less, it&#x27;s like, yeah, but reality, it&#x27;s like it&#x27;s going to be even harder to walk in the future. And so sometimes the best day to fix a problem is today. The problems do get worse. And so many owners do come to us in the middle of a very busy season. And that&#x27;s totally fine because if you can learn how to fix the business in a busy season, then it&#x27;ll be a breeze during an easy season. No matter where you&#x27;re at, whether it&#x27;s an easy season, a middle season or a busy season.</p><p><span class="ts">00:07:03</span> And I&#x27;ve yet to meet a business owner who says it&#x27;s an easy season. We&#x27;ll structure your plans and actually fit your timeline. All right. And so the key is deciding to fix it, not waiting for the kind of like the mythical unicorn perfect moment because that we all know never comes. And so if you want to get our team&#x27;s help, our actual directors who actually do this in our portfolio companies, in our company, go ahead, book a call with my team. We&#x27;ll see if it&#x27;s a fit. And if it is, can&#x27;t wait to meet you.</p></div></section>
+
+<footer>Captured 11 August 2026 from acquisition.com and from Will&rsquo;s personal inbox
+(williamprodigy@gmail.com). Evidence in
+<code>~/UNDERGROUND_FUNNELS_SSOT/01_RAW_FUNNELS/</code>. Registry id F133.<br>
+Claims are tagged VERIFIED (seen in the capture), PARTIALLY VERIFIED,
+READ (our interpretation) or UNVERIFIED (named, not guessed).</footer></div>
+<div id="lb"><span id="lbx">click anywhere or press Esc to close</span><img id="lbi" alt=""></div>
+<script>
+document.addEventListener('click',function(e){
+  var i=e.target.closest('figure img');
+  if(i){var lb=document.getElementById('lb');
+    document.getElementById('lbi').src=i.dataset.full||i.src;lb.classList.add('on');
+    window.scrollTo(0,0);return;}
+  if(e.target.closest('#lb'))document.getElementById('lb').classList.remove('on');
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').classList.remove('on');});
+</script></body></html>

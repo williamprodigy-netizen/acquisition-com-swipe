@@ -1,0 +1,187 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview &middot; Acquisition.com — Scaling Workshop swipe</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#fff;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8;--good:#34d399;--warn:#fb923c;--bad:#fb7185}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 22px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:840px}
+.hero p+p{margin-top:12px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:8px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h2.sec+p.lede{font-size:15px;color:var(--muted);margin-bottom:16px;max-width:840px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.card p+p{margin-top:9px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:25px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+.tag.a{color:var(--accent);border-color:var(--accent)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure .shot{max-height:420px;overflow:hidden;display:block}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:9px 11px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600;display:block;margin-bottom:2px;font-size:13.5px}
+figcaption a{color:var(--accent);text-decoration:none;word-break:break-all}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.75}
+details .body p{margin-bottom:11px;white-space:pre-wrap}
+details .note{padding:0 15px 12px;font-size:13px;color:var(--warn);font-style:italic}
+.q{background:var(--panel);border-left:3px solid var(--accent);padding:14px 17px;border-radius:0 8px 8px 0;
+ font-size:15.5px;line-height:1.65;margin-bottom:12px}
+.q .src{display:block;margin-top:8px;font-size:12px;color:var(--muted);font-style:normal}
+.ev{font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+.ev.v{color:var(--good)}.ev.p{color:var(--warn)}.ev.u{color:var(--muted)}.ev.r{color:var(--accent)}
+.big{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+ border-radius:0 10px 10px 0;padding:20px 24px;margin-bottom:16px}
+.big h3{font-size:18px;margin-bottom:10px}
+.big p{font-size:15px;color:var(--muted);line-height:1.65}
+.big p+p{margin-top:10px}
+.big b{color:var(--ink)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px;font-size:13px;color:var(--muted)}
+#lb{position:fixed;inset:0;background:rgba(8,11,17,.94);display:none;z-index:200;overflow:auto;padding:40px 20px}
+#lb.on{display:block}
+#lb img{max-width:1100px;width:100%;margin:0 auto;display:block;border-radius:8px}
+#lbx{position:fixed;top:14px;right:20px;color:#94a3b8;font-size:13px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Acquisition.com <span>&middot; F133</span></div>
+<nav class="main"><a href="index.html" class="on">Overview</a><a href="funnel.html" class="">The pages</a><a href="vsl.html" class="">The VSL</a><a href="emails.html" class="">The emails</a><a href="application.html" class="">The application</a><a href="steal.html" class="">What to steal</a><a href="board.html" class="">Wired board</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Swipe &middot; F133 &middot; captured 11 August 2026</div>
+<h1>They sell a $5,000 seat by making you fail an application for something else</h1>
+<p>Alex and Leila Hormozi run no webinar, no VSL funnel and almost no paid acquisition for this.
+The machine is four complete free courses and a book that has sold 1.4 million copies, feeding a
+HubSpot list that gets mailed every two days forever &mdash; on an evergreen loop that repeats on an
+exact 56-day clock.</p>
+<p>The close is the part worth stealing. Their application is not an application for the workshop.
+It is an application to become a <b>portfolio company</b> &mdash; for investment. You answer
+revenue and profit three separate ways, and when your numbers come up short the form tells you so
+and offers the paid workshop as the way to fix it. The $5,000 seat is the consolation prize for
+failing at something more prestigious.</p>
+<p><b>Will is inside this funnel personally.</b> He bought $100M Money Models in August 2025 and has
+booked their call twice &mdash; Braeden Bowman in May 2026 and Coleman Burgess in July 2026. The
+whole sequence, both setter threads and 77 broadcast emails, is sitting in his Gmail.</p></div>
+
+<section><div class="grid g3">
+<div class="stat"><div class="n">$5,000</div><div class="l">per seat</div></div><div class="stat"><div class="n">2 days</div><div class="l">in person, Vegas HQ</div></div><div class="stat"><div class="n">56 days</div><div class="l">email loop, exact</div></div><div class="stat"><div class="n">~100</div><div class="l">seats per workshop</div></div><div class="stat"><div class="n">22</div><div class="l">application questions</div></div><div class="stat"><div class="n">0</div><div class="l">guarantee</div></div>
+</div></section>
+
+<section><h2 class="sec">The spine</h2>
+<p class="lede">Nine steps. Everything before step 4 is free and genuinely useful.</p>
+<div class="tablewrap"><table>
+<tr><th>#</th><th>Step</th><th>What it actually is</th><th>Evidence</th></tr>
+<tr><td class="num">1</td><td>Front door</td><td>Books ($100M Offers / Money Models), podcast, YouTube,
+homepage. Podscribe is installed, so they measure the podcast as an acquisition channel.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">2</td><td>The gate</td><td>Four full free courses. All four post to the
+<b>same</b> HubSpot form id <code>43c2570a</code>. One list, four doors. Two-step: email, then name and phone.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">3</td><td>The machine</td><td>value@acquisition.com every two days. Track A is an
+evergreen selling loop on a 56-day repeat. Track B is &ldquo;Mozi Minute&rdquo;, never repeated, never sells.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">3b</td><td>Segmented magnet</td><td>The Scaling Roadmap is delivered by
+<b>your stage</b>, then a 3-email sequence written only for that stage.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">4</td><td>Sales page</td><td>/workshop. Vidalytics VSL, three identical CTAs
+anchoring to the embedded booking widget, price stated openly, FAQ does the disqualifying.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">5</td><td>Application</td><td>JotForm 231197990495167, 22 questions, branching.
+Framed as applying for investment.</td><td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">6</td><td>Booking</td><td>iClosed embedded inline &mdash; not Calendly, not a redirect.
+The iframe leaks an A/B variant: <code>workshop-v1</code>, <code>lp_var=4080-v1</code>.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">7</td><td>Setter</td><td>Named humans on real @acquisition.com addresses, titled
+&ldquo;Consultant&rdquo;. Four reminders per booking, plus a pre-call video and a phone-number check.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">8</td><td>Product</td><td>Two days at the Vegas HQ. Day 1 presented frameworks,
+day 2 roundtables grouped by revenue band. Deliverable is 3-5 next steps and a packet.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+<tr><td class="num">9</td><td>Launch layer</td><td>On top of the evergreen Scaling Workshop they launch
+a new named workshop every few months &mdash; Marketing (May), Offers (July) &mdash; to the same list.</td>
+<td><span class="ev v">VERIFIED</span></td></tr>
+</table></div></section>
+
+<section><h2 class="sec">Stack</h2>
+<div class="grid g4">
+<div class="card"><h3>HubSpot</h3><p>CMS, CRM, forms, email, video and the preference centre.
+Portal 21368823. Almost the entire funnel is one vendor.</p></div>
+<div class="card"><h3>JotForm</h3><p>The application. Deliberately NOT HubSpot &mdash; they wanted the
+branching logic.</p></div>
+<div class="card"><h3>iClosed</h3><p>Booking. Embedded inline on the sales page.</p></div>
+<div class="card"><h3>Vidalytics</h3><p>The sales-page VSL. Id <code>dIKsAOKOfqVMrD08</code>, shared by
+/workshop and /o-vegas.</p></div>
+<div class="card"><h3>Hyros</h3><p><code>t.acquisition.com/v1/lst/universal-script</code>. Server-side
+attribution across the whole property.</p></div>
+<div class="card"><h3>Podscribe</h3><p>Podcast attribution. They treat the podcast as a measured
+acquisition channel, not brand.</p></div>
+<div class="card"><h3>Pixels</h3><p>Meta, TikTok, Snapchat, Reddit, GTM-MHT26J7X. All loaded, all live.</p></div>
+<div class="card"><h3>Cookiebot</h3><p>Consent. Which is why the capture shows Allow/Deny buttons on
+every page.</p></div>
+</div></section>
+
+<section><h2 class="sec">What is missing from this capture</h2>
+<p class="lede">Named, not guessed.</p>
+<div class="card"><p>The post-opt-in confirmation page, the buyer / post-purchase sequence (we know it
+exists &mdash; Alex recycles a video out of it into the cold list), the SMS thread, the iClosed flow past
+the embed, and the workshop room itself. Opting in needs Will&rsquo;s approval and the phone field is a
+hard stop under the swipe rules &mdash; no research number exists, and fabricating one routes real sales
+calls to a real stranger.</p></div></section>
+
+<footer>Captured 11 August 2026 from acquisition.com and from Will&rsquo;s personal inbox
+(williamprodigy@gmail.com). Evidence in
+<code>~/UNDERGROUND_FUNNELS_SSOT/01_RAW_FUNNELS/</code>. Registry id F133.<br>
+Claims are tagged VERIFIED (seen in the capture), PARTIALLY VERIFIED,
+READ (our interpretation) or UNVERIFIED (named, not guessed).</footer></div>
+<div id="lb"><span id="lbx">click anywhere or press Esc to close</span><img id="lbi" alt=""></div>
+<script>
+document.addEventListener('click',function(e){
+  var i=e.target.closest('figure img');
+  if(i){var lb=document.getElementById('lb');
+    document.getElementById('lbi').src=i.dataset.full||i.src;lb.classList.add('on');
+    window.scrollTo(0,0);return;}
+  if(e.target.closest('#lb'))document.getElementById('lb').classList.remove('on');
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').classList.remove('on');});
+</script></body></html>
